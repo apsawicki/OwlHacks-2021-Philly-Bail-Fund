@@ -3,15 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
-
 	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/jquery.csv.min.js"></script>
+
+	<script>
+		var csv = "csv\\/parsed1.csv";
+        var arrayThing = $.csv.toArrays(csv);
+
+        $('#result').empty();
+
+        $('#result').html(JSON.stringify(data, null, 2));
+
+	</script>
 </head>
 <body>
+
 <div class="topnav">
 	<a class="active" href="#home">Home</a>
 	<a href="#news">News</a>
 	<a href="#contact">Contact</a>
 	<a href="#about">About</a>
 </div>
+
+<textarea id="result" style="height: 940px;"></textarea>
+
 </body>
 </html>
