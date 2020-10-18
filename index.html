@@ -56,29 +56,29 @@
             return $.get("csv/parsed1.csv");
         }*/
 
-        getCsvFile().then(function (responseText) {
-            var data = $.csv2Array(responseText);
-
-            /*
-             * Turns actualArrays into an array of arrays to be used in the format of:
-             * 		actualArrays[indexOfDesiredArray][indexOfDesiredBondCase]
-             */
-            for (let i = 0; i < arrayNameContainer.length; i++) {
-                // Creat
-                actualArrays[i] = new Array((data.length));
-            }
-
-            // data[j][1]
-            // actualArrays[1][j]
-            for (let i = 0; i < arrayNameContainer.length; i++) {
-                for (let j = 0; j < data.length; j++) {
-                    actualArrays[i][j] = data[j][i];
-                }
-            }
-
-            //blah = data;
-            // $('#body').html(data);
-        });
+        // getCsvFile().then(function (responseText) {
+        //     var data = $.csv2Array(responseText);
+		//
+        //     /*
+        //      * Turns actualArrays into an array of arrays to be used in the format of:
+        //      * 		actualArrays[indexOfDesiredArray][indexOfDesiredBondCase]
+        //      */
+        //     for (let i = 0; i < arrayNameContainer.length; i++) {
+        //         // Creat
+        //         actualArrays[i] = new Array((data.length));
+        //     }
+		//
+        //     // data[j][1]
+        //     // actualArrays[1][j]
+        //     for (let i = 0; i < arrayNameContainer.length; i++) {
+        //         for (let j = 0; j < data.length; j++) {
+        //             actualArrays[i][j] = data[j][i];
+        //         }
+        //     }
+		//
+        //     //blah = data;
+        //     // $('#body').html(data);
+        // });
 	</script>
 </head>
 <body>
@@ -143,7 +143,7 @@
 		<th class="th-sm">Docket Number</th>
 		<th class="th-sm">Offense(s)</th>
 		<th class="th-sm">Offense Date</th>
-		<th class="th-sm">Arrest Date</th>
+		<!--<th class="th-sm">Arrest Date</th>
 		<th class="th-sm">Case Status</th>
 		<th class="th-sm">Arresting Officer</th>
 		<th class="th-sm">Attorney</th>
@@ -156,7 +156,7 @@
 		<th class="th-sm">Bail Type</th>
 		<th class="th-sm">Prelim Hearing Date</th>
 		<th class="th-sm">Prelim Hearing Time</th>
-		<th class="th-sm">Parsed Offenses</th>
+		<th class="th-sm">Parsed Offenses</th>-->
 	</tr>
 	</thead>
 	<tbody id="input_table">
@@ -172,19 +172,19 @@
 
         console.log(actualArrays)
 
-        for (let i = 0; i < actualArrays.length; i++) { // Loop through every title element
+        for (let i = 1; i < 2; i++) { // Loop through every title element
             $('#input_table').append("<tr>")
 
-            for (let j = 0; j < 7; j++) {
-                $('#input_table').append("<td>")
-                $('#input_table').append(actualArrays[i][j])
-                $('#input_table').append("</td>")
+            for (let j = 1; j < 4; j++) {
+                //$('#input_table').append("<td>" + actualArrays[j][i] + "</td>")
+                $('#input_table').append("<td>test</td>")
             }
 
             $('#input_table').append("</tr>")
         }
 
 
+        console.log("Finished outputting to table.")
 	</script>
 
 	</tbody>
@@ -206,9 +206,9 @@
 	</tfoot>-->
 </table>
 
-
 <script>
     $(document).ready(function () {
+        console.log()
         $('#dtBasicExample').DataTable();
         $('#dtBasicExample').add()
         $('.dataTables_length').addClass('bs-select');
