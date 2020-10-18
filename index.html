@@ -3,10 +3,11 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Title</title>
+	<!--<link rel="stylesheet" href="css/styles.css"> -->
 	<link rel="stylesheet" href="css/db_style.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/addons/datatables.min.css">
-	<!-- <link rel="stylesheet" href="css/styles.css"> -->
+
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -84,6 +85,84 @@
 </head>
 <body>
 
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">Data</h1>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline1">Docket #</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline2" name="customRadioInline2" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline2">Offenses</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline3" name="customRadioInline3" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline3">Offense Date</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline4" name="customRadioInline4" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline4">Arrest Date</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline5" name="customRadioInline5" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline5">Case Status</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline6" name="customRadioInline6" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline6">Arresting Officer</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline7" name="customRadioInline7" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline7">Attorney</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline8" name="customRadioInline8" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline8">D-O-B</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline9" name="customRadioInline9" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline9">Zip</label>
+		</div>
+
+		<button type="button" class="btn btn-secondary">Filter</button>
+
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline10" name="customRadioInline10" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline10">Bail Set By</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline11" name="customRadioInline11" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline11">Bail Amount</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline12" name="customRadioInline12" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline12">Bail Paid</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline13" name="customRadioInline13" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline13">Bail Date</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline14" name="customRadioInline14" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline14">Bail Type</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline15" name="customRadioInline15" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline15">Prelim Hearing Date</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline16" name="customRadioInline16" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline16">Prelim Hearing Time</label>
+		</div>
+		<div class="custom-control custom-radio custom-control-inline">
+			<input type="checkbox" id="customRadioInline17" name="customRadioInline17" class="custom-control-input">
+			<label class="custom-control-label" for="customRadioInline17">Parsed Offenses</label>
+		</div>
+	</div>
+</div>
+
+<!--
 <div id="navbar">
 	<a href="javascript:void(0)">Home</a>
 	<a href="javascript:void(0)">Filters</a>
@@ -94,7 +173,7 @@
 
 	<h1>Data</h1>
 </div>
-
+-->
 <script>
     // When the user scrolls the page, execute myFunction
     window.onscroll = function () {
@@ -212,6 +291,7 @@
 		}*/
 
     $(document).ready(function () {
+        console.log()
         $('#dtBasicExample').DataTable();
         $('#dtBasicExample').add()
         $('.dataTables_length').addClass('bs-select');

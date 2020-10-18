@@ -51,6 +51,7 @@ body {
 }
 
 div.middleHead {
+    opacity: 100%;
     top: 50px;
     color: white;
     width: 100%;
