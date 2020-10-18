@@ -3,23 +3,23 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Title</title>
-	<!-- <link rel="stylesheet" href="css/styles.css"> -->
 	<link rel="stylesheet" href="css/db_style.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link href="css/addons/datatables.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/addons/datatables.min.css">
+	<!-- <link rel="stylesheet" href="css/styles.css"> -->
 
 	<script src="js/jquery.js"></script>
-
 	<script src="js/bootstrap.min.js"></script>
 
 	<!-- MDBootstrap Datatables  -->
 	<script type="text/javascript" src="js/addons/datatables.min.js"></script>
-
 	<script src="js/jquery.csv.js"></script>
 
 
 	<script>
-        //let blah;
+        let blah;
+
+        // Docket, Offenses, Offense Date, Attorney,
         let arrayNameContainer = ['index', 'docket_no', 'offenses', 'offense_date', 'arrest_dt', 'case_status',
             'arresting_officer', 'attorney', 'dob', 'zip', 'bail_set_by', 'bail_amount', 'bail_paid', 'bail_date',
             'bail_type', 'prelim_hearing_dt', 'prelim_hearing_time', 'parsed_offenses']
@@ -31,6 +31,7 @@
             url: 'csv/parsed1.csv',
             success: function (responseText) {
                 var data = $.csv2Array(responseText);
+                blah = data;
 
                 /*
 				 * Turns actualArrays into an array of arrays to be used in the format of:
@@ -58,7 +59,7 @@
 
         // getCsvFile().then(function (responseText) {
         //     var data = $.csv2Array(responseText);
-		//
+        //
         //     /*
         //      * Turns actualArrays into an array of arrays to be used in the format of:
         //      * 		actualArrays[indexOfDesiredArray][indexOfDesiredBondCase]
@@ -67,7 +68,7 @@
         //         // Creat
         //         actualArrays[i] = new Array((data.length));
         //     }
-		//
+        //
         //     // data[j][1]
         //     // actualArrays[1][j]
         //     for (let i = 0; i < arrayNameContainer.length; i++) {
@@ -75,7 +76,7 @@
         //             actualArrays[i][j] = data[j][i];
         //         }
         //     }
-		//
+        //
         //     //blah = data;
         //     // $('#body').html(data);
         // });
@@ -143,7 +144,7 @@
 		<th class="th-sm">Docket Number</th>
 		<th class="th-sm">Offense(s)</th>
 		<th class="th-sm">Offense Date</th>
-		<!--<th class="th-sm">Arrest Date</th>
+		<th class="th-sm">Arrest Date</th>
 		<th class="th-sm">Case Status</th>
 		<th class="th-sm">Arresting Officer</th>
 		<th class="th-sm">Attorney</th>
@@ -156,36 +157,10 @@
 		<th class="th-sm">Bail Type</th>
 		<th class="th-sm">Prelim Hearing Date</th>
 		<th class="th-sm">Prelim Hearing Time</th>
-		<th class="th-sm">Parsed Offenses</th>-->
+		<th class="th-sm">Parsed Offenses</th>
 	</tr>
 	</thead>
 	<tbody id="input_table">
-
-	<script>
-        /*
-		 <tr>
-			 <td>arrayThing[0][0]</td>
-			 <td>arrayThing[0][1]</td>
-			 <td>arrayThing[0][2]</td>
-		 </tr>
-		 */
-
-        console.log(actualArrays)
-
-        for (let i = 1; i < 2; i++) { // Loop through every title element
-            $('#input_table').append("<tr>")
-
-            for (let j = 1; j < 4; j++) {
-                //$('#input_table').append("<td>" + actualArrays[j][i] + "</td>")
-                $('#input_table').append("<td>test</td>")
-            }
-
-            $('#input_table').append("</tr>")
-        }
-
-
-        console.log("Finished outputting to table.")
-	</script>
 
 	</tbody>
 	<!--<tfoot>
@@ -205,10 +180,38 @@
 	</tr>
 	</tfoot>-->
 </table>
+<script>
+
+    for (let i = 1; i < blah.length; i++) { // Loop through every title element
+        var outputText = "";
+
+        outputText += "<tr>"
+        //$('#input_table').append("<tr>")
+
+        for (let j = 1; j < actualArrays.length; j++)
+            outputText += "<td>" + actualArrays[j][i] + "</td>"
+
+        outputText += "</tr>"
+
+        $('#input_table').append(outputText)
+
+    }
+
+    // $('#dtBasicExample').DataTable();
+    // $('#dtBasicExample').add()
+    // $('.dataTables_length').addClass('bs-select');
+</script>
 
 <script>
+
+	/*var arrThing = []
+
+	for (let i = 0; i < arrThing.length; i++)
+	    if (arrThing[i]) {
+
+		}*/
+
     $(document).ready(function () {
-        console.log()
         $('#dtBasicExample').DataTable();
         $('#dtBasicExample').add()
         $('.dataTables_length').addClass('bs-select');
