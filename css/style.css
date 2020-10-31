@@ -1,0 +1,77 @@
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#loading {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 1;
+    background-color: black;
+    z-index: 99;
+    text-align: center;
+    color: white;
+}
+
+#xLoader {
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 100px;
+    left: 240px;
+    z-index: 100;
+    color: white;
+}
+
+.jumbotron-fluid {
+    background-color: aliceblue;
+    border-radius: 0;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+#dtBasicExample {
+}
+
+th {
+    text-align: center;
+    height: 3rem;
+    font-size: .85rem;
+}
+
+#blockcontainers {
+    display: flex;
+    justify-content: flex-end
+}
+
+
+#tablecontainer {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:before,
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    font-family: "Font Awesome\ 5 Free", sans-serif;
+    font-size: 1rem;
+}
+
+@font-face {
+    font-family: "Font Awesome\ 5 Free";
+    src: url("../ttfs/fa-solid-900.ttf");
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Philadelphia Bail Fund Overview</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/db_style.css">
+	<link rel="stylesheet" href="css/addons/datatables.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/xloader.css">
+
+
+	<!-- Local jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- MDBootstrap Datatables  -->
+	<script type="text/javascript" src="js/addons/datatables.min.js"></script>
+
+	<!-- Bootstrap init -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- jQuery-CSV init -->
+	<script src="js/jquery.csv.js"></script>
+
+	<!-- CSV Manipulating Functions init -->
+	<script src="js/javafile.js"></script>
+
+	<script>importCsvAndSet();</script>
+</head>
+<body>
+
+<!-- Loading screen that applies itself over the main page until the end of the page is reached. -->
+<div id="loading">
+	<div id="loading-image">
+		<div id="xLoader">
+			<div class="google-spin-wrapper">
+				<div class="google-spin"></div>
+			</div>
+			Please wait, loading...
+		</div>
+	</div>
+</div>
+
+<!-- Top of the page -->
+<div class="jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4 text-center inlin">Philadelphia Bail Fund Overview</h1>
+		<br/>
+
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked1" name="defaultChecked1" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked1">Docket #</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked2" name="defaultChecked2" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked2">Offenses</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked3" name="defaultChecked3" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked3">Offense Date</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked4" name="defaultChecked4" class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked4">Arrest Date</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked5" name="defaultChecked5" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked5">Case Status</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked6" name="defaultChecked6" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked6">Arresting Officer</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked7" name="defaultChecked7" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked7">Attorney</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked8" name="defaultChecked8" class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked8">D.O.B</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked9" name="defaultChecked9" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked9">Zip</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked10" name="defaultChecked10" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked10">Bail Set By</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked11" name="defaultChecked11" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked11">Bail Amount</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked12" name="defaultChecked12" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked12">Bail Paid</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked13" name="defaultChecked13" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked13">Bail Date</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked14" name="defaultChecked14" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked14">Bail Type</label>
+		</div>
+		<div class="custom-control custom-checkbox custom-control-inline">
+			<input type="checkbox" id="defaultChecked15" name="defaultChecked15" checked class="custom-control-input">
+			<label class="custom-control-label" for="defaultChecked15">Prelim Hearing</label>
+		</div>
+
+		<br/>
+
+		<div class="container my-1">
+			<div class="text-center">
+				<button type="button" class="btn btn-primary filter_button">Filter</button>
+			</div>
+		</div>
+
+		<div class="container btn-group btn-group-toggle" data-toggle="buttons">
+			<label class="btn btn-secondary active">
+				<input type="radio" name="options" id="option1" autocomplete="off" checked> List
+			</label>
+			<label class="btn btn-secondary">
+				<input type="radio" name="options" id="option2" autocomplete="off"> Graphs
+			</label>
+			<label class="btn btn-secondary">
+				<input type="radio" name="options" id="option3" autocomplete="off"> Information
+			</label>
+		</div>
+
+	</div>
+</div>
+
+<div id="tablecontainer">
+	<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+		<thead>
+		<tr>
+			<th class="th-sm">Docket Number</th>
+			<th class="th-sm">Offenses</th> <!-- Actually parsed offenses -->
+			<th class="th-sm">Date</th> <!-- Offense Date -->
+			<!--<th class="th-sm">Arrest Date</th>-->
+			<th class="th-sm">Status</th> <!-- Case Status-->
+			<th class="th-sm">Arrester</th> <!-- Arresting Officer -->
+			<th class="th-sm">Attorney</th>
+			<!--<th class="th-sm">D.O.B</th>--> <!-- Date of Birth -->
+			<th class="th-sm">Zip</th>
+			<th class="th-sm">Bail By</th> <!-- Bail Set By -->
+			<th class="th-sm">Bail Amount</th>
+			<th class="th-sm">Bail Paid</th>
+			<th class="th-sm">Bail Date</th>
+			<th class="th-sm">Bail Type</th>
+			<th class="th-sm">Hearing</th> <!-- Prelim Hearing Date -->
+			<!--<th class="th-sm">Prelim Hearing Time</th>--> <!-- Prelim Hearing Time -->
+		</tr>
+		</thead>
+		<tbody id="input_table">
+
+		</tbody>
+		<tfoot>
+		<tr>
+			<th>Docket Number</th>
+			<th>Parsed Offenses</th>
+			<th>Date</th> <!-- Offense Date -->
+			<!--sm">Arrest Date</th>-->
+			<th>Status</th> <!-- Case Status-->
+			<th>Arrester</th> <!-- Arresting Officer -->
+			<th>Attorney</th>
+			<!--sm">D.O.B</th>--> <!-- Date of Birth -->
+			<th>Zip</th>
+			<th>Bail Set By</th>
+			<th>Bail Amount</th>
+			<th>Bail Paid</th>
+			<th>Bail Date</th>
+			<th>Bail Type</th>
+			<th>Hearing</th> <!-- Prelim Hearing Date -->
+		</tr>
+		</tfoot>
+	</table>
+</div>
+
+<script>
+    displayFormattedCsv();
+
+    $(document).ready(function () {
+        $('#loading').fadeOut();
+    });
+</script>
+
+</body>
+</html>
